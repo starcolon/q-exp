@@ -2,7 +2,7 @@
 
 # Batch train the tic-tac-toe bot
 
-for i in `seq 1 30000`;
+for i in `seq 1 50000`;
 do
 	echo -e "\033[1m"
 	echo "————————————————————————"

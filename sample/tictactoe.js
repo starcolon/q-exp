@@ -31,8 +31,8 @@ var actionSet = [
 ];
 
 var ttt = {}
-var b1 = '';
-var b2 = '✓';
+var b1 = '⎈';
+var b2 = '⌘';
 
 ttt.agentVsHuman = function agentVsHuman(){
 	var alpha;

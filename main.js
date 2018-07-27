@@ -76,8 +76,11 @@ ql.clearHistory = function(agent){
  */
 ql.save = function(path){
 	return function(agent){
-		fs.writeFile(`${path}/${agent.name}.agent`,JSON.stringify(agent.policy));
-		return Promise.resolve(agent);
+		fs.writeFileSync(`${path}/${agent.name}.agent`,JSON.stringify(agent.policy));
+		return Promise.resolve(agent).error((e) => {
+			console.error('Unable to save agent state'.red);
+			console.error(e);
+		});
 	}
 }
 
@@ -86,7 +89,7 @@ ql.save = function(path){
  */
 ql.saveAs = function(fullpath){
 	return function(agent){
-		fs.writeFile(`${fullpath}.agent`,JSON.stringify(agent.policy));
+		fs.writeFileSync(`${fullpath}.agent`,JSON.stringify(agent.policy));
 		return Promise.resolve(agent);
 	}
 }
